@@ -1,6 +1,6 @@
 using System;
 
-namespace AngularPractice2
+namespace PowerPlant
 {
     public class WeatherForecast
     {

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AngularPractice2.Controllers
+namespace PowerPlant.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

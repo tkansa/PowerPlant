@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PowerPlant.Services;
 
-namespace AngularPractice2
+namespace PowerPlant
 {
     public class Startup
     {

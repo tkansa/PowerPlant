@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AngularPractice2.Models
+namespace PowerPlant.Models
 {
     public class Plant
     {

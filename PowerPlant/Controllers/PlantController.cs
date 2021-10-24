@@ -1,4 +1,4 @@
-﻿using AngularPractice2.Models;
+﻿using PowerPlant.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PowerPlant.Services;
