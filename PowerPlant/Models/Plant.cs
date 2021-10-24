@@ -33,6 +33,12 @@ namespace PowerPlant.Models
         }
 
         public Plant(int id,
+            string commonName)
+        {
+            Id = id;
+            CommonName = commonName;
+        }
+        public Plant(int id,
             string commonName,
             string scientificName,
             string description,

@@ -1,1 +1,12 @@
-<p>plants works!</p>
+<table *ngIf="plants">
+  <thead>
+    <tr>
+      <th>Common Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let plant of plants">
+      <td>{{plant.commonName}}</td>
+    </tr>
+  </tbody>
+</table>

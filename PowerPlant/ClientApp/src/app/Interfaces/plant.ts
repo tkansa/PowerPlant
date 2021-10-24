@@ -1,7 +1,7 @@
 export interface Plant {
-
-  id: string;
+  id: number;
   commonName: string;
-  scientificName: string;
-  imageeUrl: string;
+  //scientificName: string;
+  //imageUrl: string;
 }
+

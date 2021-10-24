@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { PlantService } from '../plant.service';
+import { Plant } from '../interfaces/plant';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-plants',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlantsComponent implements OnInit {
 
-  constructor() { }
+  public plants: Plant[];
+
+  constructor(private plantService: PlantService) { }
 
   ngOnInit() {
+    this.getPlants();
   }
-
+  result: Plant[];
+  getPlants() {
+    this.plantService.getPlants().subscribe(
+      result => this.plants = result,
+      error => console.error(error)
+    );
+  }
 }
