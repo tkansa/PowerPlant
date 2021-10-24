@@ -17,8 +17,8 @@ export class PlantsComponent implements OnInit {
   ngOnInit() {
     this.getPlants();
   }
-  result: Plant[];
-  getPlants() {
+  
+  getPlants(): void {
     this.plantService.getPlants().subscribe(
       result => this.plants = result,
       error => console.error(error)

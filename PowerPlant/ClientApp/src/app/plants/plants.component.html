@@ -2,11 +2,13 @@
   <thead>
     <tr>
       <th>Common Name</th>
+      <th>Image</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let plant of plants">
       <td>{{plant.commonName}}</td>
+      <td><img class="plant-image" src="{{plant.imageUrl}}"/></td>
     </tr>
   </tbody>
 </table>
