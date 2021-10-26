@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PlantsComponent } from './plants/plants.component';
+import { AddPlantComponent } from './add-plant/add-plant.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PlantsComponent } from './plants/plants.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    PlantsComponent
+    PlantsComponent,
+    AddPlantComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,7 +30,8 @@ import { PlantsComponent } from './plants/plants.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'plants', component: PlantsComponent }
+      { path: 'plants', component: PlantsComponent },
+      { path: 'addPlant', component: AddPlantComponent }
     ])
   ],
   providers: [],

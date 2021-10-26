@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { PlantService } from '../plant.service';
 import { Plant } from '../interfaces/plant';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-plants',

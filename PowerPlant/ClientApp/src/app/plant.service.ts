@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Plant } from './interfaces/plant';
 import { Observable } from 'rxjs';
 
@@ -12,5 +12,13 @@ export class PlantService {
 
   getPlants(): Observable<Plant[]> {   
     return this.httpClient.get<Plant[]>('api/plant');
+  }
+
+  addPlant(plant: Plant): Observable<Plant> {
+    return this.httpClient.post<Plant>('api/plant', plant, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
   }
 }
