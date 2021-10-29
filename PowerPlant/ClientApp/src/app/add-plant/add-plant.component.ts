@@ -20,7 +20,7 @@ export class AddPlantComponent implements OnInit {
   addPlant(): void {
     this.plantService.addPlant(this.plant).subscribe(
       (data: Plant) => {
-        console.log(data);
+        console.log("New plant: " + data);
       },
       (error: any) => console.log(error)
     );

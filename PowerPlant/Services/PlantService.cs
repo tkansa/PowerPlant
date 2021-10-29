@@ -1,6 +1,7 @@
 ﻿using PowerPlant.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,19 +9,36 @@ namespace PowerPlant.Services
 {
     public class PlantService : IPlantService
     {
-        List<Plant> plants = new List<Plant>()
-        {
-            new Plant(1, "Devil's Tongue", "Pothos", "The species is a popular houseplant in temperate regions but has also become naturalised in tropical and sub-tropical forests worldwide.", "Indirect Sun", 1, 4, "All purpose", 1, 4, "https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/pothos_usmee_ss-crop.jpg?itok=5Wgvlf8W"),
-            new Plant(2, "Aloe Vera", "Aloe Vera", "An evergreen perennial, it originates from the Arabian Peninsula, but grows wild in tropical, semi-tropical, and arid climates around the world", "Indirect Sun", 4, 8, "Balanced", 1, 4, "https://www.almanac.com/sites/default/files/users/Almanac%20Staff/aloe-vera-plant1_full_width.jpg")
-        };
+        private string plantDbfilePath = @"PowerPlantDb.txt";
+        private string plantIdCounterFilePath = @"PlantIdCounter.txt";
+        
         public void AddPlant(Plant plant)
         {
-            plant.Id = plants.Count() + 1;
-            plants.Add(plant);
+            // get the id from the db
+            string idLine = File.ReadAllText(plantIdCounterFilePath);
+            // increment it and set the id of the plant
+            plant.Id = int.Parse(idLine) + 1;
+            // write the new id back to the db
+            File.WriteAllText(plantIdCounterFilePath, plant.Id.ToString());
+            // write the new plant to the db
+            string plantString = $"{plant.Id},{plant.CommonName},{plant.ImageUrl}";
+            File.AppendAllText(plantDbfilePath, Environment.NewLine + plantString);
         }
 
         public IEnumerable<Plant> GetPlants()
         {
+            List<string> lines = File.ReadAllLines(plantDbfilePath).ToList();
+            List<Plant> plants = new List<Plant>();
+            foreach (string line in lines)
+            {
+                string[] plantArray = line.Split(",");
+                Plant plant = new Plant();
+                plant.Id = int.Parse(plantArray[0]);
+                plant.CommonName = plantArray[1];
+                plant.ImageUrl = plantArray[2];
+                plants.Add(plant);
+            }
+
             return plants;
         }
     }
