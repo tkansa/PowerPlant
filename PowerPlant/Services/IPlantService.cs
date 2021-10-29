@@ -9,6 +9,10 @@ namespace PowerPlant.Services
     public interface IPlantService
     {
         public IEnumerable<Plant> GetPlants();
-        void AddPlant(Plant plant);
+        public void AddPlant(Plant plant);
+
+        public void DeletePlant(string id);
+
+
     }
 }

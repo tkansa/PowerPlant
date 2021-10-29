@@ -3,12 +3,14 @@
     <tr>
       <th>Common Name</th>
       <th>Image</th>
+      <th>Remove Plant</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let plant of plants">
       <td>{{plant.commonName}}</td>
       <td><img class="plant-image" src="{{plant.imageUrl}}"/></td>
+      <td><button (click)="deletePlant(plant)">x</button></td>
     </tr>
   </tbody>
 </table>

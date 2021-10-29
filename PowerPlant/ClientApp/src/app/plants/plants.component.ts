@@ -23,4 +23,9 @@ export class PlantsComponent implements OnInit {
       error => console.error(error)
     );
   }
+
+  deletePlant(plant: Plant): void {
+    this.plants = this.plants.filter(p => p != plant);
+    this.plantService.deletePlant(plant.id).subscribe();
+  }
 }

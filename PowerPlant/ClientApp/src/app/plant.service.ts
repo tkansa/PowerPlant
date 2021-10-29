@@ -10,15 +10,21 @@ export class PlantService {
 
   constructor(private httpClient: HttpClient) { }
 
+  private readonly plantApiUrl: string = 'api/plant';
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   getPlants(): Observable<Plant[]> {   
-    return this.httpClient.get<Plant[]>('api/plant');
+    return this.httpClient.get<Plant[]>(this.plantApiUrl);
   }
 
   addPlant(plant: Plant): Observable<Plant> {
-    return this.httpClient.post<Plant>('api/plant', plant, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    });
+    return this.httpClient.post<Plant>(this.plantApiUrl, plant, this.httpOptions);
+  }
+
+  deletePlant(id: number): Observable<Plant> {
+    return this.httpClient.delete<Plant>(this.plantApiUrl + '/' + id, this.httpOptions);
   }
 }

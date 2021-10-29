@@ -29,8 +29,13 @@ namespace PowerPlant.Controllers
         [HttpPost]
         public void AddPlant(Plant plant)
         {
-            PlantService ps = new PlantService();
-            ps.AddPlant(plant);
+            plantService.AddPlant(plant);
+        }
+
+        [HttpDelete("{id}")]
+        public void DeletePlant(string id)
+        {
+            plantService.DeletePlant(id);
         }
     }
 }
