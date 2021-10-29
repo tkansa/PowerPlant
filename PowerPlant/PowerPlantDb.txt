@@ -1,6 +1,5 @@
 1,Aloe,https://www.almanac.com/sites/default/files/users/Almanac%20Staff/aloe-vera-plant1_full_width.jpg
 2,Pothos,https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/pothos_usmee_ss-crop.jpg?itok=5Wgvlf8W
-3,Spider Plant,https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/spider-plant_t50-ss.jpg?itok=N7ExeEBY
-6,Norfolk Island Pine,https://cdn.shopify.com/s/files/1/0253/6701/9565/files/Norfolk-Island-Pine-Organic-Pot-Large_2048x2048.jpg?v=1633870654
-12,Spider Plant,https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/spider-plant_t50-ss.jpg?itok=N7ExeEBY
-13,Boston Fern,https://www.almanac.com/sites/default/files/users/AlmanacStaffArchive/boston_fern_sdbower_gettyimages_full_width.jpg
+25,Norfolk Island Pine,https://www.almanac.com/sites/default/files/users/AlmanacStaffArchive/boston_fern_sdbower_gettyimages_full_width.jpg
+26,Boston Fern,https://www.almanac.com/sites/default/files/users/AlmanacStaffArchive/boston_fern_sdbower_gettyimages_full_width.jpg
+32,Fiddle Leaf Fig,https://cdn1.1800flowers.com/wcsstore/Flowers/images/catalog/157632nlgx.jpg?width=545&height=597&quality=80&auto=webp&optimize={medium}

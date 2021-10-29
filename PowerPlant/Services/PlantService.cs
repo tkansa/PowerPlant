@@ -22,7 +22,7 @@ namespace PowerPlant.Services
             File.WriteAllText(plantIdCounterFilePath, plant.Id.ToString());
             // write the new plant to the db
             string plantString = $"{plant.Id},{plant.CommonName},{plant.ImageUrl}";
-            File.AppendAllText(plantDbfilePath, Environment.NewLine + plantString);
+            File.AppendAllText(plantDbfilePath, plantString + Environment.NewLine);
         }
 
         public void DeletePlant(string id)
