@@ -21,8 +21,8 @@ namespace PowerPlant.Services
             // write the new id back to the db
             File.WriteAllText(plantIdCounterFilePath, plant.Id.ToString());
             // write the new plant to the db
-            string plantString = $"{plant.Id},{plant.CommonName},{plant.ImageUrl}";
-            File.AppendAllText(plantDbfilePath, plantString + Environment.NewLine);
+            string[] plantArray = new[] { $"{plant.Id},{plant.CommonName},{plant.ImageUrl}" };
+            File.AppendAllLines(plantDbfilePath, plantArray);
         }
 
         public void DeletePlant(string id)

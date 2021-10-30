@@ -10,6 +10,8 @@ import { Plant } from '../interfaces/plant';
 export class AddPlantComponent implements OnInit {
 
   plant: Plant = { id: 0, commonName: "", imageUrl: "" };
+
+  message: string;
  
   constructor(private plantService: PlantService) { }
   
@@ -24,6 +26,10 @@ export class AddPlantComponent implements OnInit {
       },
       (error: any) => console.log(error)
     );
+    this.message = this.plant.commonName + ' was added!';
+    this.plant.id = 0;
+    this.plant.commonName = '';
+    this.plant.imageUrl = '';
   }
 
 }
