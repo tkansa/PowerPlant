@@ -9,8 +9,6 @@ import { PlantDetailComponent } from './plant-detail/plant-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'counter', component: CounterComponent },
-  { path: 'fetch-data', component: FetchDataComponent },
   { path: 'plants', component: PlantsComponent },
   { path: 'addPlant', component: AddPlantComponent },
   { path: 'detail/:id', component: PlantDetailComponent }
