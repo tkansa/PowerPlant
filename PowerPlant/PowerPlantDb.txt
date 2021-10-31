@@ -2,6 +2,6 @@
 26,Boston Fern,https://www.almanac.com/sites/default/files/users/AlmanacStaffArchive/boston_fern_sdbower_gettyimages_full_width.jpg
 32,Fiddle Leaf Fig,https://cdn1.1800flowers.com/wcsstore/Flowers/images/catalog/157632nlgx.jpg?width=545&height=597&quality=80&auto=webp&optimize={medium}
 35,3Palm Plant,https://cdn.shopify.com/s/files/1/0303/0250/3011/products/image_293b99a1-210e-44d7-aec0-a0092eea2d60_800x800.jpg?v=1619685112
-37,Spidey2,https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F37%2F2020%2F09%2F14%2Fvariegated-spider-plant-efd23956.jpg
 38,Spidey3,https://cdn11.bigcommerce.com/s-r932bs4ubb/images/stencil/1280x1280/products/5710/6411/plb409-gr_zoom__34521.1619269233.jpg?c=1
 39,Spider Plant,https://cdn11.bigcommerce.com/s-r932bs4ubb/images/stencil/1280x1280/products/5710/6411/plb409-gr_zoom__34521.1619269233.jpg?c=1
+41,another,https://cdn11.bigcommerce.com/s-r932bs4ubb/images/stencil/1280x1280/products/5710/6411/plb409-gr_zoom__34521.1619269233.jpg?c=1

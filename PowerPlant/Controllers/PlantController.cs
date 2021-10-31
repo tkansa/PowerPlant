@@ -25,7 +25,11 @@ namespace PowerPlant.Controllers
         {
             return plantService.GetPlants().ToArray();
         }
-
+        [HttpGet("{id}")]
+        public Plant GetPlant(int id)
+        {
+            return plantService.GetPlant(id);
+        }
         [HttpPost]
         public void AddPlant(Plant plant)
         {

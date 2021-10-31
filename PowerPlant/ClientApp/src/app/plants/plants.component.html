@@ -8,8 +8,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let plant of plants">
-      <td>{{plant.commonName}}</td>
-      <td><img class="plant-image" src="{{plant.imageUrl}}"/></td>
+      <td><a routerLink="/detail/{{plant.id}}">{{plant.commonName}}</a></td>
+      <td><a routerLink="/detail/{{plant.id}}"><img class="plant-image" src="{{plant.imageUrl}}" /></a></td>
       <td><button (click)="deletePlant(plant)">x</button></td>
     </tr>
   </tbody>

@@ -20,6 +20,11 @@ export class PlantService {
     return this.httpClient.get<Plant[]>(this.plantApiUrl);
   }
 
+  getPlant(id: number): Observable<Plant> {
+    const url: string = `${this.plantApiUrl}/${id}`;
+    return this.httpClient.get<Plant>(url);
+  }
+
   addPlant(plant: Plant): Observable<Plant> {
     return this.httpClient.post<Plant>(this.plantApiUrl, plant, this.httpOptions);
   }

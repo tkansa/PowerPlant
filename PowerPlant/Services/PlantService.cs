@@ -49,6 +49,24 @@ namespace PowerPlant.Services
             File.WriteAllLines(plantDbfilePath, lines);
         }
 
+        public Plant GetPlant(int id)
+        {
+            List<string> lines = File.ReadAllLines(plantDbfilePath).ToList();
+            List<Plant> plants = new List<Plant>();
+            foreach (string line in lines)
+            {
+                string[] plantArray = line.Split(",");
+                Plant plant = new Plant();
+                plant.Id = int.Parse(plantArray[0]);
+                plant.CommonName = plantArray[1];
+                plant.ImageUrl = plantArray[2];
+                plants.Add(plant);
+            }
+
+            Plant foundPlant = plants.Find(p => p.Id == id);
+            return foundPlant;
+        }
+
         public IEnumerable<Plant> GetPlants()
         {
             List<string> lines = File.ReadAllLines(plantDbfilePath).ToList();
