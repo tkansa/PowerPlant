@@ -1,3 +1,7 @@
+<div>
+  <input [(ngModel)]="filterText" type="text" placeholder="search"/>
+  <button (click)="clearFilter()">Clear</button>
+</div>
 <table *ngIf="plants">
   <thead>
     <tr>
@@ -7,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let plant of plants">
+    <tr *ngFor="let plant of filterPlants()">
       <td><a routerLink="/detail/{{plant.id}}">{{plant.commonName}}</a></td>
       <td><a routerLink="/detail/{{plant.id}}"><img class="plant-image" src="{{plant.imageUrl}}" /></a></td>
       <td><button (click)="deletePlant(plant)">x</button></td>
