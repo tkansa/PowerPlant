@@ -29,6 +29,10 @@ export class PlantService {
     return this.httpClient.post<Plant>(this.plantApiUrl, plant, this.httpOptions);
   }
 
+  updatePlant(plant: Plant): Observable<any> {
+    return this.httpClient.put(this.plantApiUrl, plant, this.httpOptions);
+  }
+
   deletePlant(id: number): Observable<Plant> {
     return this.httpClient.delete<Plant>(this.plantApiUrl + '/' + id, this.httpOptions);
   }

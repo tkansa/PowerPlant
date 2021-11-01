@@ -83,5 +83,30 @@ namespace PowerPlant.Services
 
             return plants;
         }
+
+        public void UpdatePlant(Plant plant)
+        {
+            List<string> lines = File.ReadAllLines(plantDbfilePath).ToList();
+            List<Plant> plants = new List<Plant>();
+            foreach (string line in lines)
+            {
+                string[] plantArray = line.Split(",");
+                Plant p = new Plant();
+                p.Id = int.Parse(plantArray[0]);
+                p.CommonName = plantArray[1];
+                p.ImageUrl = plantArray[2];
+                plants.Add(p);
+            }
+            Plant foundPlant = plants.Find(p => p.Id == plant.Id);
+            foundPlant.CommonName = plant.CommonName;
+            lines = new List<string>();
+            foreach (Plant p in plants)
+            {
+                string plantString = $"{p.Id},{p.CommonName},{p.ImageUrl}";
+                lines.Add(plantString);
+
+            }
+            File.WriteAllLines(plantDbfilePath, lines);
+        }
     }
 }

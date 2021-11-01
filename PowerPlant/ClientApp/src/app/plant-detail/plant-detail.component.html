@@ -2,3 +2,8 @@
   <p>{{plant.commonName}}</p>
   <p><img src="{{plant.imageUrl}}" /></p>
 </div>
+<div>
+  <label for="plant-name">Edit name: </label>
+  <input id="plant-name" [(ngModel)]="plant.commonName" />
+  <button (click)="updatePlant()">Save Changes</button>
+</div>
