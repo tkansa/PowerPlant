@@ -1,6 +1,9 @@
-﻿using PowerPlant.Models;
+﻿using Dapper;
+using PowerPlant.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +14,13 @@ namespace PowerPlant.Services
     {
         private string plantDbfilePath = @"PowerPlantDb.txt";
         private string plantIdCounterFilePath = @"PlantIdCounter.txt";
+
+        private IDbConnection connection;
+
+        public PlantService(string connectionString)
+        {
+            connection = new SqlConnection(connectionString);
+        }
 
         public void AddPlant(Plant plant)
         {
@@ -39,9 +49,12 @@ namespace PowerPlant.Services
             return foundPlant;
         }
 
+      
+
         public IEnumerable<Plant> GetPlants()
         {
-            return ReadAllPlants();
+            string queryString = "SELECT * FROM Plants";
+            return connection.Query<Plant>(queryString);
         }
 
         public void UpdatePlant(Plant plant)

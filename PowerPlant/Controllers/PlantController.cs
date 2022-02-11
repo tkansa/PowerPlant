@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace PowerPlant.Controllers
 {
@@ -14,10 +15,12 @@ namespace PowerPlant.Controllers
     public class PlantController : ControllerBase
     {
         private IPlantService plantService;
+        private IConfiguration configuration;
 
-        public PlantController(IPlantService plantService)
+        public PlantController(IConfiguration config)
         {
-            this.plantService = plantService;
+            configuration = config;
+            plantService = new PlantService(configuration.GetConnectionString("DefaultConnection"));
         }
 
         [HttpGet]

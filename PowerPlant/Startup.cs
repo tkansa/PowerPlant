@@ -27,7 +27,7 @@ namespace PowerPlant
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            services.AddTransient<IPlantService, PlantService>();
+            //services.AddTransient<IPlantService, PlantService>();
             
         }
 
