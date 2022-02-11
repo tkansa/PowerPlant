@@ -10,10 +10,10 @@ namespace PowerPlant.Services
     {
         public IEnumerable<Plant> GetPlants();
         public Plant GetPlant(int id);
-        public void AddPlant(Plant plant);
+        public int AddPlant(Plant plant);
 
         public void UpdatePlant(Plant plant);
-        public void DeletePlant(string id);
+        public int DeletePlant(int id);
 
     }
 }

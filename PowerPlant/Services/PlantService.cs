@@ -22,34 +22,25 @@ namespace PowerPlant.Services
             connection = new SqlConnection(connectionString);
         }
 
-        public void AddPlant(Plant plant)
+        public int AddPlant(Plant plant)
         {
-            // get the id from the db
-            string idLine = File.ReadAllText(plantIdCounterFilePath);
-            // increment it and set the id of the plant
-            plant.Id = int.Parse(idLine) + 1;
-            // write the new id back to the db
-            File.WriteAllText(plantIdCounterFilePath, plant.Id.ToString());
-            // write the new plant to the db
-            string[] plantArray = new[] { $"{plant.Id},{plant.CommonName},{plant.ImageUrl}" };
-            File.AppendAllLines(plantDbfilePath, plantArray);
+            string commandString = "INSERT INTO Plants (CommonName, ImageUrl) ";
+            commandString += "VALUES (@CommonName, @ImageUrl)";
+            return connection.Execute(commandString, plant);
         }
 
-        public void DeletePlant(string id)
+        public int DeletePlant(int id)
         {
-            List<Plant> plants = ReadAllPlants();
-            plants.RemoveAll(p => p.Id.ToString() == id);
-            WriteAllPlants(plants);
+            string commandString = "DELETE FROM Plants WHERE Id = @val";
+            return connection.Execute(commandString, new { val = id });
         }
 
         public Plant GetPlant(int id)
         {
-            List<Plant> plants = ReadAllPlants();
-            Plant foundPlant = plants.Find(p => p.Id == id);
-            return foundPlant;
-        }
-
-      
+            string queryString = "SELECT * FROM Plants WHERE Id = @val";
+            Plant plant = connection.QueryFirstOrDefault<Plant>(queryString, new { val = id });
+            return plant;
+        }    
 
         public IEnumerable<Plant> GetPlants()
         {
@@ -59,37 +50,7 @@ namespace PowerPlant.Services
 
         public void UpdatePlant(Plant plant)
         {
-            List<Plant> plants = ReadAllPlants();
-            Plant foundPlant = plants.Find(p => p.Id == plant.Id);
-            foundPlant.CommonName = plant.CommonName;
-            WriteAllPlants(plants);
-        }
-
-        private List<Plant> ReadAllPlants()
-        {
-            List<string> lines = File.ReadAllLines(plantDbfilePath).ToList();
-            List<Plant> plants = new List<Plant>();
-            foreach (string line in lines)
-            {
-                string[] plantArray = line.Split(",");
-                Plant plant = new Plant();
-                plant.Id = int.Parse(plantArray[0]);
-                plant.CommonName = plantArray[1];
-                plant.ImageUrl = plantArray[2];
-                plants.Add(plant);
-            }
-            return plants;
-        }
-
-        private void WriteAllPlants(List<Plant> plants)
-        {
-            List<string> lines = new List<string>();
-            foreach (Plant plant in plants)
-            {
-                string plantString = $"{plant.Id},{plant.CommonName},{plant.ImageUrl}";
-                lines.Add(plantString);
-            }
-            File.WriteAllLines(plantDbfilePath, lines);
+            // TODO
         }
     }
 }

@@ -45,7 +45,7 @@ namespace PowerPlant.Controllers
         }
 
         [HttpDelete("{id}")]
-        public void DeletePlant(string id)
+        public void DeletePlant(int id)
         {
             plantService.DeletePlant(id);
         }
