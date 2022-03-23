@@ -1,20 +1,13 @@
 ﻿using Dapper;
 using PowerPlant.Models;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PowerPlant.Services
 {
     public class PlantService : IPlantService
     {
-        private string plantDbfilePath = @"PowerPlantDb.txt";
-        private string plantIdCounterFilePath = @"PlantIdCounter.txt";
-
         private IDbConnection connection;
 
         public PlantService(string connectionString)
@@ -24,15 +17,15 @@ namespace PowerPlant.Services
 
         public int AddPlant(Plant plant)
         {
-            string commandString = "INSERT INTO Plants (CommonName, ImageUrl) ";
-            commandString += "VALUES (@CommonName, @ImageUrl)";
-            return connection.Execute(commandString, plant);
+            string insertString = "INSERT INTO Plants (CommonName, ImageUrl) ";
+            insertString += "VALUES (@CommonName, @ImageUrl)";
+            return connection.Execute(insertString, plant);
         }
 
         public int DeletePlant(int id)
         {
-            string commandString = "DELETE FROM Plants WHERE Id = @val";
-            return connection.Execute(commandString, new { val = id });
+            string deleteString = "DELETE FROM Plants WHERE Id = @val";
+            return connection.Execute(deleteString, new { val = id });
         }
 
         public Plant GetPlant(int id)
@@ -40,7 +33,7 @@ namespace PowerPlant.Services
             string queryString = "SELECT * FROM Plants WHERE Id = @val";
             Plant plant = connection.QueryFirstOrDefault<Plant>(queryString, new { val = id });
             return plant;
-        }    
+        }
 
         public IEnumerable<Plant> GetPlants()
         {
