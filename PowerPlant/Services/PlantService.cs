@@ -41,9 +41,10 @@ namespace PowerPlant.Services
             return connection.Query<Plant>(queryString);
         }
 
-        public void UpdatePlant(Plant plant)
+        public int UpdatePlant(Plant plant)
         {
-            // TODO
+            string updateString = "UPDATE Plants SET CommonName = @CommonName, ImageUrl = @ImageUrl WHERE Id = @Id";
+            return connection.Execute(updateString, new { Id = plant.Id, CommonName = plant.CommonName, ImageUrl = plant.ImageUrl });
         }
     }
 }

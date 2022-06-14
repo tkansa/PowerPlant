@@ -3,7 +3,7 @@ using Xunit;
 
 namespace PowerPlant.Tests
 {
-    public class UnitTest1
+    public class PlantServiceTests
     {
         [Fact]
         public void Test1()

@@ -12,7 +12,7 @@ namespace PowerPlant.Services
         public Plant GetPlant(int id);
         public int AddPlant(Plant plant);
 
-        public void UpdatePlant(Plant plant);
+        public int UpdatePlant(Plant plant);
         public int DeletePlant(int id);
 
     }
