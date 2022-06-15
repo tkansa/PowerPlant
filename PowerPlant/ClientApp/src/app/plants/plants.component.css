@@ -2,3 +2,10 @@
     max-height: 100px;
     max-width: 100px;
 }
+
+.delete-btn {
+    margin-left: 15px;
+    border: solid 1px darkgray;
+    border-radius: 3px;
+    color: rgb(105, 105, 105);
+}

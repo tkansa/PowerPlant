@@ -14,7 +14,7 @@
     <tr *ngFor="let plant of filterPlants()">
       <td><a routerLink="/detail/{{plant.id}}">{{plant.commonName}}</a></td>
       <td><a routerLink="/detail/{{plant.id}}"><img class="plant-image" src="{{plant.imageUrl}}" /></a></td>
-      <td><button (click)="deletePlant(plant)">x</button></td>
+      <td ><button class="delete-btn" (click)="deletePlant(plant)">X</button></td>
     </tr>
   </tbody>
 </table>
